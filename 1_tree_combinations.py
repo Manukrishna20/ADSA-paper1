@@ -7,9 +7,10 @@ def fun(n,s="(y)"):
             if s[i]=='y':
                 ns=s[0:i]+"(y)x(y)"+s[i+1:]
                 l+=(fun(n-1,ns))
+        l=list(set(l))
         return l
 n=int(input("Enter no of nodes"))
-lis=list(set(fun(n)))  #repeatation in result as it will generate same output for ambigous replacement of y (same structure diffenrent order replacement of y)
+lis=fun(n)  #repeatation in result as it will generate same output for ambigous replacement of y (same structure diffenrent order replacement of y)
 #can be avoided by using set inside the function to reduce the time complexity
 for i in range(len(lis)):
     lis[i]=lis[i].replace("(y)","")
